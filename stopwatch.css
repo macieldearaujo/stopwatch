@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+:root {
+    --background: #F6F6F6;
+    --background-timer: #2D1338;
+    --stopwatch: #ffff;
+    --title: #f5f5dc;
+    --play-button: #E57CD8;
+    --pause-button: #b747ae;
+    --reset-button: #574261c7;
+}
+
+body {
+    background-color: var(--background);
+}
+
+main {
+    background-color: var(--background-timer);
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: 100px;
+    height: 300px;
+    max-width: 750px;
+    border-radius: 35px;
+    box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.325);
+}
+
+h1 {
+    color: var(--title);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.time {
+    color: var(--stopwatch);
+    font-weight: bolder;
+    font-size: 120px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600px;
+    margin: auto;
+    
+}
+
+.grid-element {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    text-align: center;
+}
+
+.time-descriptions {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: right;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+  justify-content: center; /* Alinha horizontalmente */
+}
+
+#css-hours::after,
+#css-minutes::after {
+    content: ':';
+}
+
+.css-play-button,
+.css-pause-button,
+.css-reset-button {
+    border: none;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.css-play-button {
+    background-color: var(--play-button) ;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+}
+
+.css-pause-button {
+    background-color: var(--pause-button);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+}
+
+.css-reset-button {
+    background-color: var(--reset-button);
+}
+
+.css-reset-button:active {
+    background-color: var(--reset-button);
+}
+
+.outra {
+    font-size: 18px;
+}
+
+footer {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    right: 0;
+    left: 0;
+    text-align: center;
+    bottom: 0;
+    color: white;
+    background-color: var(--background-timer);
+    padding: 2px;
+  }
