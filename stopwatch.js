@@ -2,11 +2,18 @@ const readParagraph = document.querySelector('.js-time');
 const readPlayButton = document.querySelector('.js-play-button');
 const readResetButton = document.querySelector('.js-reset-button');
 
-let sec = 0;
-let min = 0;
-let hour = 0;
+const hours = JSON.parse(localStorage.getItem("hours")) || {
+    hour: 0,
+    min: 0,
+    sec: 0
+};
+
+console.log(hours)
 
 let date = new Date();
+
+date.setHours(hours.hour, hours.min, hours.sec);
+readParagraph.innerHTML = showHour(date);
 
 function showHour(newDate) {
     return newDate.toLocaleTimeString('pt-BR', {
@@ -33,12 +40,17 @@ readPlayButton.addEventListener('click', () => {
     }
 });
 
+readResetButton.addEventListener('click', () => {
+    resetTimer();
+});
+
 function playTimer() {
     timer = setInterval(() => {
-        sec++;
-        date.setHours(hour, min, sec);
+        hours.sec++;
+        date.setHours(hours.hour, hours.min, hours.sec);
         console.log(showHour(date));
         readParagraph.innerHTML = showHour(date);
+        saveToStorage()
     }, 1000);
 }
 
@@ -47,12 +59,18 @@ function pauseTimer() {
     pause = true;
 }
 
-readResetButton.addEventListener('click', () => {
+function resetTimer() {
     clearTimeout(timer);
-    sec = 0;
+    hours.sec = 0;
+    hours.min = 0;
+    hours.hour = 0;
     pause = true;
     date.setHours(0, 0, 0);
-    console.log('Reset!')
-    console.log(showHour(date));
+    console.log('Reset!');
     readParagraph.innerHTML = showHour(date);
-});
+    saveToStorage()
+}
+
+function saveToStorage() {
+    localStorage.setItem("hours", JSON.stringify(hours));
+}
