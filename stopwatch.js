@@ -27,7 +27,6 @@ function createSec() {
 readPlayButton.addEventListener('click', () => {
     if(pause) {
         readPlayButton.innerText = 'Pause'
-        readPlayButton.
         createSec();
         pause = false;
     } else {
@@ -38,40 +37,9 @@ readPlayButton.addEventListener('click', () => {
 });
 
 readResetButton.addEventListener('click', () => {
+    readPlayButton.innerText = 'Play'
+    readParagraph.innerHTML = '00:00:00';
+    clearInterval(timer);
     pause = true;
+    sec = 0;
 });
-
-// readResetButton.addEventListener('click', () => {
-//     resetTimer();
-// });
-
-// function playTimer() {
-//     timer = setInterval(() => {
-//         hours.sec++;
-//         date.setHours(hours.hour, hours.min, hours.sec);
-//         console.log(showHour(date));
-//         readParagraph.innerHTML = showHour(date);
-//         saveToStorage()
-//     }, 1000);
-// }
-
-// function pauseTimer() {
-//     clearTimeout(timer);
-//     pause = true;
-// }
-
-// function resetTimer() {
-//     clearTimeout(timer);
-//     hours.sec = 0;
-//     hours.min = 0;
-//     hours.hour = 0;
-//     pause = true;
-//     date.setHours(0, 0, 0);
-//     console.log('Reset!');
-//     readParagraph.innerHTML = showHour(date);
-//     saveToStorage()
-// }
-
-// function saveToStorage() {
-//     localStorage.setItem("hours", JSON.stringify(hours));
-// }
