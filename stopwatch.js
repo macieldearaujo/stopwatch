@@ -2,7 +2,7 @@ const readParagraph = document.querySelector('.js-time');
 const readPlayButton = document.querySelector('.js-play-button');
 const readResetButton = document.querySelector('.js-reset-button');
 
-let sec = 58;
+let sec = 0;
 let timer;
 let pause = true;
 
