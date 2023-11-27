@@ -26,11 +26,11 @@ function createSec() {
 
 readPlayButton.addEventListener('click', () => {
     if(pause) {
-        readPlayButton.innerText = 'Pause'
+        readPlayButton.innerText = 'Pause';
         createSec();
         pause = false;
     } else {
-        readPlayButton.innerText = 'Play'
+        readPlayButton.innerText = 'Play';
         clearInterval(timer);
         pause = true;
     }

@@ -118,3 +118,20 @@ footer {
     background-color: var(--background-timer);
     padding: 2px;
   }
+
+  .paused {
+    color: #fff5f5; /* Cor de pausa (vermelho) */
+  
+    /* Adicionando efeito de animação para piscar */
+    animation: blink 1.5s infinite; /* 1s de duração, repetição infinita */
+  }
+  
+  /* Definindo a animação blink */
+  @keyframes blink {
+    0% {
+      opacity: 1; /* Totalmente visível */
+    }
+    50% {
+      opacity: 0; /* Totalmente transparente (invisível) */
+    }
+  }
