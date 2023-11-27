@@ -2,9 +2,16 @@ const readParagraph = document.querySelector('.js-time');
 const readPlayButton = document.querySelector('.js-play-button');
 const readResetButton = document.querySelector('.js-reset-button');
 
-let sec = 0;
+let sec = JSON.parse(localStorage.getItem('sec'));
+
+if (!sec) {
+    sec = 0;
+}
+
 let timer;
 let pause = true;
+
+readParagraph.innerHTML = createHours(sec);
 
 function createHours(sec) {
     const date = new Date(sec * 1000);
@@ -21,7 +28,8 @@ function createSec() {
     timer = setInterval(() => {
         sec++;
         readParagraph.innerHTML = createHours(sec);
-    }, 1000)
+        saveToStorage();
+    }, 1000);
 }
 
 readPlayButton.addEventListener('click', () => {
@@ -44,4 +52,9 @@ readResetButton.addEventListener('click', () => {
     clearInterval(timer);
     pause = true;
     sec = 0;
+    saveToStorage();
 });
+
+function saveToStorage() {
+    localStorage.setItem('sec', JSON.stringify(sec));
+}
