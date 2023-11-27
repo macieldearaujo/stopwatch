@@ -2,7 +2,7 @@ const readParagraph = document.querySelector('.js-time');
 const readPlayButton = document.querySelector('.js-play-button');
 const readResetButton = document.querySelector('.js-reset-button');
 
-let sec = 0;
+let sec = 58;
 let timer;
 let pause = true;
 
@@ -27,10 +27,12 @@ function createSec() {
 readPlayButton.addEventListener('click', () => {
     if(pause) {
         readPlayButton.innerText = 'Pause';
+        readParagraph.classList.remove('paused');
         createSec();
         pause = false;
     } else {
         readPlayButton.innerText = 'Play';
+        readParagraph.classList.add('paused');
         clearInterval(timer);
         pause = true;
     }
